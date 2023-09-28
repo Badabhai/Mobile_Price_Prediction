@@ -9,19 +9,20 @@ df = pickle.load(open('df.pkl','rb'))
 st.title("Mobile Price Detector")
 
 model = st.selectbox("Mobile Brand",df['model'].unique())
-Ram = st.selectbox("Ram(In GB)",[0.5,1,2,3,4,6,8,12,16,18])
-Rom = st.selectbox("Internal Memory(In GB)",[0.5,4,8,16,32,64,128,256,512,1024])
+Ram = st.selectbox("Ram(In GB)",[6,2,3,4,8,12,16,18])
+Rom = st.selectbox("Internal Memory(In GB)",[128,4,8,16,32,64,256,512,1024])
 Network = st.selectbox("Network",["5G","4G","3G"])
 Processor = st.selectbox("Processor Brand",["Snapdragon","Dimensity","Helio","Bionic","Exynos","Others"])
-Camera = st.selectbox("Camera",["Quad","Triple","Dual","Mono"])
-Primary = st.number_input("Primary Camera Pixel(upto 200)")
+Camera = st.selectbox("Camera",["Triple","Quad","Dual","Mono"])
+Primary = st.number_input("Primary Camera Pixel(upto 200)",value=64)
 Front = st.selectbox("Front Camera",["Yes","No"])
-Fast_Charging = st.selectbox("Fast Charging",["No","Yes"])
+Fast_Charging = st.selectbox("Fast Charging",["Yes","No"])
 Refresh_rate = st.selectbox("Refresh Rate",["120 Hz","90 Hz","60 Hz","144 Hz"])
 Fold = st.selectbox("Foldable Display",["No","Yes"])
-mAh = st.number_input("Battery Capacity(In mAh)")
-Inch = st.number_input("Screen Size(in Inches)")
-resolution = st.selectbox("Screen Resolution",["1920x1080","1366x768","1600x900","1920x1200","2560x1440","2560x1600","3840x2160"])
+mAh = st.number_input("Battery Capacity(In mAh)",value=5000)
+Inch = st.number_input("Screen Size(in Inches)",value=6.59)
+resolution = st.selectbox("Screen Resolution",['1080x1920','1080x2400','480x800', '640x1136', '720x1280','720x1600', '750x1334','1440x2560'])
+
 
 if st.button("Predict Price"):
     # Getting Network selected
